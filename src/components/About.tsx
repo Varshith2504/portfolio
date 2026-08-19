@@ -12,6 +12,8 @@ import {
   FileDown
 } from 'lucide-react';
 import { personalInfo, statsData } from '../data/portfolioData';
+import profileImg from '../assets/profile.jpg';
+import resumePdf from '../assets/Varshith_Resume.pdf';
 
 export const About: React.FC = () => {
   const coreStrengths = [
@@ -113,7 +115,7 @@ export const About: React.FC = () => {
                 }}
               >
                 <img
-                  src="/profile.jpg"
+                  src={profileImg}
                   alt={personalInfo.name}
                   style={{
                     width: '100%',
@@ -166,7 +168,7 @@ export const About: React.FC = () => {
               }}
             >
               <motion.a
-                href="/Varshith_Resume.pdf"
+                href={resumePdf}
                 download="Varshith_Resume.pdf"
                 target="_blank"
                 rel="noreferrer"

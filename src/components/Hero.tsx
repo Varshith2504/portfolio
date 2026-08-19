@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { personalInfo } from '../data/portfolioData';
+import profileImg from '../assets/profile.jpg';
+import resumePdf from '../assets/Varshith_Resume.pdf';
 
 export const Hero: React.FC = () => {
   const roles = [
@@ -181,7 +183,7 @@ export const Hero: React.FC = () => {
               }}
             >
               <motion.a
-                href="/Varshith_Resume.pdf"
+                href={resumePdf}
                 download="Varshith_Resume.pdf"
                 target="_blank"
                 rel="noreferrer"
@@ -288,7 +290,7 @@ export const Hero: React.FC = () => {
                 }}
               >
                 <motion.img
-                  src="/profile.jpg"
+                  src={profileImg}
                   alt={personalInfo.name}
                   whileHover={{ scale: 1.04 }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}

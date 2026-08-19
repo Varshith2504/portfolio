@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, FileDown } from 'lucide-react';
+import resumePdf from '../assets/Varshith_Resume.pdf';
 
 interface NavbarProps {
   activeSection: string;
@@ -157,7 +158,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           {/* Right Action: Resume Download Button */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <motion.a
-              href="/Varshith_Resume.pdf"
+              href={resumePdf}
               download="Varshith_Resume.pdf"
               target="_blank"
               rel="noreferrer"
@@ -259,7 +260,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             ))}
 
             <a
-              href="/Varshith_Resume.pdf"
+              href={resumePdf}
               download="Varshith_Resume.pdf"
               target="_blank"
               rel="noreferrer"
