@@ -2,8 +2,6 @@
 
 A modern, high-performance developer portfolio built with React 18, TypeScript, Vite, Framer Motion, and Lucide Icons. Features interactive micro-animations, clean dual-tone aesthetic, project showcases with modal views, categorized technical skills, and resume downloads.
 
-![Portfolio Preview](./public/profile.jpg)
-
 ---
 
 ## 🚀 Live Demo & Features
