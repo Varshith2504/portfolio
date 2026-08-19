@@ -85,8 +85,8 @@ export const projectsData: Project[] = [
       'Integrated REST APIs with Spring Boot, JPA, and MySQL for secure, reliable backend operations',
       'Designed a responsive, intuitive React user interface for smooth project collaboration and tracking'
     ],
-    liveUrl: 'https://github.com/Varshith2504',
-    githubUrl: 'https://github.com/Varshith2504',
+    liveUrl: 'https://github.com/Varshith2504/collabhub',
+    githubUrl: 'https://github.com/Varshith2504/collabhub',
     featured: true
   },
   {
