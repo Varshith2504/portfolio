@@ -23,7 +23,7 @@ export const personalInfo: PersonalInfo = {
 
 export const statsData: StatItem[] = [
   { value: '6.7', label: 'B.Tech CGPA', description: 'Information Technology at Anurag University' },
-  { value: '3+', label: 'Verified Certifications', description: 'Google Cloud AI, Infosys & Wipro' },
+  { value: '4+', label: 'Verified Certifications', description: 'Google Cloud AI, Infosys & Wipro' },
   { value: '3+', label: 'Practical Projects', description: 'Collab Hub, AI Trip Planner & OCR Expense Vision' },
   { value: '81%', label: 'Intermediate MPC', description: 'Sri Chaitanya Junior College' }
 ];
@@ -172,6 +172,14 @@ export const educationData: EducationItem[] = [
 export const certificationsData: CertificationItem[] = [
   {
     id: 'cert-1',
+    title: 'Certificate Program in Cloud Computing Engineering (Azure / AWS)',
+    issuer: 'WIPRO FUTURE SKILLS',
+    date: 'Certified',
+    icon: 'Cloud',
+    description: 'Specialized program covering Cloud Computing Architecture, AWS & Azure core services, virtual networking, cloud security, and scalable infrastructure.'
+  },
+  {
+    id: 'cert-2',
     title: 'Fundamentals of Python Programming',
     issuer: 'INFOSYS',
     date: 'Certified',
@@ -179,7 +187,7 @@ export const certificationsData: CertificationItem[] = [
     description: 'Comprehensive certification covering Python core syntax, data structures, functions, modules, file handling, and algorithmic problem solving.'
   },
   {
-    id: 'cert-2',
+    id: 'cert-3',
     title: 'Artificial Intelligence & Machine Learning',
     issuer: 'WIPRO FUTURE SKILLS',
     date: 'Certified',
@@ -187,7 +195,7 @@ export const certificationsData: CertificationItem[] = [
     description: 'In-depth program on Machine Learning algorithms, predictive modeling, data preprocessing, and artificial intelligence fundamentals.'
   },
   {
-    id: 'cert-3',
+    id: 'cert-4',
     title: 'Introduction to Generative AI',
     issuer: 'GOOGLE CLOUD',
     date: 'Certified',

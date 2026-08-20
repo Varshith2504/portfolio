@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, CheckCircle, Sparkles } from 'lucide-react';
+import { X, CheckCircle, Sparkles } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import type { Project } from '../types';
 
@@ -267,35 +267,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               </div>
             </div>
 
-            {/* Action Buttons */}
+            {/* Single GitHub Action Button */}
             <div
               style={{
-                display: 'flex',
-                gap: '1rem',
                 paddingTop: '1.5rem',
                 borderTop: '1px solid var(--border-subtle)'
               }}
             >
               <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-primary"
-                style={{ flex: 1 }}
-              >
-                <ExternalLink size={16} />
-                <span>View on GitHub</span>
-              </a>
-
-              <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="btn btn-secondary"
-                style={{ flex: 1 }}
+                className="btn btn-primary"
+                style={{ width: '100%', justifyContent: 'center' }}
               >
-                <GithubIcon size={16} />
-                <span>Source Repository</span>
+                <GithubIcon size={18} />
+                <span>View on GitHub</span>
               </a>
             </div>
           </div>

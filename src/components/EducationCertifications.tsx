@@ -8,13 +8,16 @@ import {
   CheckCircle2,
   BookOpen,
   Terminal,
-  Cpu
+  Cpu,
+  Cloud
 } from 'lucide-react';
 import { educationData, certificationsData } from '../data/portfolioData';
 
 export const EducationCertifications: React.FC = () => {
   const getCertIcon = (iconName: string) => {
     switch (iconName) {
+      case 'Cloud':
+        return <Cloud size={22} />;
       case 'Terminal':
         return <Terminal size={22} />;
       case 'Cpu':
@@ -244,7 +247,7 @@ export const EducationCertifications: React.FC = () => {
           </div>
         </div>
 
-        {/* Certifications Section */}
+        {/* Certifications Section — Clean List Format */}
         <div style={{ maxWidth: '950px', margin: '0 auto' }}>
           <div
             style={{
@@ -273,107 +276,109 @@ export const EducationCertifications: React.FC = () => {
             </h3>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '1.5rem'
-            }}
-          >
+          {/* List Format Container */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {certificationsData.map((cert, i) => (
               <motion.div
                 key={cert.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{ y: -4 }}
+                transition={{ duration: 0.45, delay: i * 0.08 }}
+                whileHover={{ x: 4 }}
                 className="glass-card"
                 style={{
-                  padding: '2rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  backgroundColor: '#ffffff'
+                  padding: '1.5rem 1.75rem',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '18px',
+                  border: '1px solid var(--border-subtle)',
+                  boxShadow: 'var(--shadow-sm)'
                 }}
               >
-                <div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '1.25rem'
-                    }}
-                  >
+                <div
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: '1.25rem'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.25rem', flex: 1, minWidth: '280px' }}>
                     <div
                       style={{
-                        width: '44px',
-                        height: '44px',
+                        width: '48px',
+                        height: '48px',
                         borderRadius: '12px',
                         backgroundColor: 'var(--primary-light)',
                         color: 'var(--primary)',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center'
+                        justifyContent: 'center',
+                        flexShrink: 0
                       }}
                     >
                       {getCertIcon(cert.icon)}
                     </div>
-                    <span
-                      style={{
-                        fontSize: '0.75rem',
-                        fontWeight: 700,
-                        backgroundColor: 'var(--primary-light)',
-                        color: 'var(--primary)',
-                        padding: '0.3rem 0.75rem',
-                        borderRadius: '9999px',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.05em',
-                        border: '1px solid rgba(37, 99, 235, 0.2)'
-                      }}
-                    >
-                      {cert.issuer}
-                    </span>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.35rem' }}>
+                        <span
+                          style={{
+                            fontSize: '0.72rem',
+                            fontWeight: 700,
+                            backgroundColor: 'var(--primary-light)',
+                            color: 'var(--primary)',
+                            padding: '0.25rem 0.65rem',
+                            borderRadius: '9999px',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.05em',
+                            border: '1px solid rgba(37, 99, 235, 0.2)'
+                          }}
+                        >
+                          {cert.issuer}
+                        </span>
+                      </div>
+                      <h4
+                        style={{
+                          fontSize: '1.15rem',
+                          fontWeight: 800,
+                          color: 'var(--text-primary)',
+                          lineHeight: 1.3,
+                          marginBottom: '0.35rem'
+                        }}
+                      >
+                        {cert.title}
+                      </h4>
+                      <p
+                        style={{
+                          fontSize: '0.9rem',
+                          color: 'var(--text-secondary)',
+                          lineHeight: 1.55
+                        }}
+                      >
+                        {cert.description}
+                      </p>
+                    </div>
                   </div>
 
-                  <h4
+                  <div
                     style={{
-                      fontSize: '1.18rem',
-                      fontWeight: 800,
-                      color: 'var(--text-primary)',
-                      lineHeight: 1.35,
-                      marginBottom: '0.6rem'
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      fontSize: '0.82rem',
+                      color: 'var(--primary)',
+                      fontWeight: 700,
+                      backgroundColor: 'var(--primary-light)',
+                      padding: '0.45rem 0.85rem',
+                      borderRadius: '9999px',
+                      border: '1px solid rgba(37, 99, 235, 0.2)',
+                      flexShrink: 0
                     }}
                   >
-                    {cert.title}
-                  </h4>
-                  <p
-                    style={{
-                      fontSize: '0.9rem',
-                      color: 'var(--text-secondary)',
-                      lineHeight: 1.6
-                    }}
-                  >
-                    {cert.description}
-                  </p>
-                </div>
-
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    marginTop: '1.5rem',
-                    paddingTop: '1rem',
-                    borderTop: '1px solid var(--border-subtle)',
-                    fontSize: '0.82rem',
-                    color: 'var(--primary)',
-                    fontWeight: 700
-                  }}
-                >
-                  <CheckCircle2 size={15} />
-                  <span>Credential Verified</span>
+                    <CheckCircle2 size={15} />
+                    <span>Verified</span>
+                  </div>
                 </div>
               </motion.div>
             ))}
