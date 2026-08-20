@@ -51,7 +51,7 @@ export const Projects: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="section-subtitle"
           >
-            End-to-end full-stack web applications and AI/ML document intelligence systems.
+            Click any project card to view complete features, architecture, and source code.
           </motion.p>
         </div>
 
@@ -91,14 +91,14 @@ export const Projects: React.FC = () => {
           })}
         </div>
 
-        {/* Projects Grid */}
+        {/* Compact Projects Grid */}
         <motion.div
           layout
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: '2.5rem',
-            maxWidth: '1000px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '2rem',
+            maxWidth: '1100px',
             margin: '0 auto'
           }}
         >
@@ -111,12 +111,13 @@ export const Projects: React.FC = () => {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.45, delay: idx * 0.08 }}
+                whileHover={{ y: -5 }}
                 className="glass-card"
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   overflow: 'hidden',
-                  borderRadius: '24px',
+                  borderRadius: '20px',
                   cursor: 'pointer',
                   backgroundColor: '#ffffff'
                 }}
@@ -126,7 +127,7 @@ export const Projects: React.FC = () => {
                 <div
                   style={{
                     position: 'relative',
-                    height: '230px',
+                    height: '200px',
                     width: '100%',
                     overflow: 'hidden',
                     backgroundColor: '#e2e8f0'
@@ -135,7 +136,7 @@ export const Projects: React.FC = () => {
                   <motion.img
                     src={project.image}
                     alt={project.title}
-                    whileHover={{ scale: 1.06 }}
+                    whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     style={{
                       width: '100%',
@@ -146,19 +147,19 @@ export const Projects: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      top: '1rem',
-                      left: '1rem',
+                      top: '0.85rem',
+                      left: '0.85rem',
                       display: 'flex',
-                      gap: '0.5rem'
+                      gap: '0.4rem'
                     }}
                   >
                     <span
                       style={{
-                        fontSize: '0.75rem',
+                        fontSize: '0.72rem',
                         fontWeight: 700,
                         backgroundColor: '#ffffff',
                         color: 'var(--primary)',
-                        padding: '0.3rem 0.75rem',
+                        padding: '0.25rem 0.65rem',
                         borderRadius: '9999px',
                         boxShadow: 'var(--shadow-sm)'
                       }}
@@ -168,11 +169,11 @@ export const Projects: React.FC = () => {
                     {project.featured && (
                       <span
                         style={{
-                          fontSize: '0.75rem',
+                          fontSize: '0.72rem',
                           fontWeight: 700,
                           backgroundColor: 'var(--primary)',
                           color: '#ffffff',
-                          padding: '0.3rem 0.75rem',
+                          padding: '0.25rem 0.65rem',
                           borderRadius: '9999px',
                           display: 'flex',
                           alignItems: 'center',
@@ -186,111 +187,119 @@ export const Projects: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Card Content Body */}
+                {/* Compact Card Body */}
                 <div
                   style={{
-                    padding: '2rem',
+                    padding: '1.5rem',
                     display: 'flex',
                     flexDirection: 'column',
-                    flexGrow: 1
+                    flexGrow: 1,
+                    justifyContent: 'space-between'
                   }}
                 >
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      justifyContent: 'space-between',
-                      gap: '0.5rem',
-                      marginBottom: '0.75rem'
-                    }}
-                  >
-                    <h3
-                      style={{
-                        fontSize: '1.3rem',
-                        fontWeight: 700,
-                        color: 'var(--text-primary)',
-                        lineHeight: 1.3
-                      }}
-                    >
-                      {project.title}
-                    </h3>
+                  <div>
                     <div
                       style={{
-                        width: '34px',
-                        height: '34px',
-                        borderRadius: '50%',
-                        backgroundColor: 'var(--primary-light)',
-                        color: 'var(--primary)',
                         display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0
+                        alignItems: 'flex-start',
+                        justifyContent: 'space-between',
+                        gap: '0.5rem',
+                        marginBottom: '0.5rem'
                       }}
                     >
-                      <ArrowUpRight size={18} />
-                    </div>
-                  </div>
-
-                  <p
-                    style={{
-                      fontSize: '0.94rem',
-                      color: 'var(--text-secondary)',
-                      lineHeight: 1.65,
-                      marginBottom: '1.5rem',
-                      flexGrow: 1
-                    }}
-                  >
-                    {project.description}
-                  </p>
-
-                  {/* Metrics snippet */}
-                  <div
-                    style={{
-                      display: 'flex',
-                      gap: '0.6rem',
-                      padding: '0.75rem 1rem',
-                      backgroundColor: 'var(--bg-primary)',
-                      borderRadius: '12px',
-                      marginBottom: '1.5rem',
-                      border: '1px solid var(--border-subtle)'
-                    }}
-                  >
-                    {project.metrics.map((m, i) => (
-                      <div key={i} style={{ flex: 1 }}>
-                        <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{m.label}</div>
-                        <div style={{ fontSize: '0.88rem', fontWeight: 800, color: 'var(--primary)' }}>
-                          {m.value}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Tech stack badges */}
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      gap: '0.45rem',
-                      paddingTop: '1.25rem',
-                      borderTop: '1px solid var(--border-subtle)'
-                    }}
-                  >
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
+                      <h3
                         style={{
-                          fontSize: '0.8rem',
-                          fontWeight: 600,
-                          backgroundColor: 'var(--bg-primary)',
-                          color: 'var(--text-secondary)',
-                          padding: '0.25rem 0.65rem',
-                          borderRadius: '6px',
-                          border: '1px solid var(--border-subtle)'
+                          fontSize: '1.18rem',
+                          fontWeight: 800,
+                          color: 'var(--text-primary)',
+                          lineHeight: 1.3
                         }}
                       >
-                        {tag}
+                        {project.title}
+                      </h3>
+                      <div
+                        style={{
+                          width: '32px',
+                          height: '32px',
+                          borderRadius: '50%',
+                          backgroundColor: 'var(--primary-light)',
+                          color: 'var(--primary)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0
+                        }}
+                      >
+                        <ArrowUpRight size={16} />
+                      </div>
+                    </div>
+
+                    {/* Short Tagline */}
+                    <p
+                      style={{
+                        fontSize: '0.88rem',
+                        color: 'var(--text-secondary)',
+                        lineHeight: 1.5,
+                        marginBottom: '1.25rem'
+                      }}
+                    >
+                      {project.tagline}
+                    </p>
+                  </div>
+
+                  <div>
+                    {/* Tech stack badges */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        gap: '0.4rem',
+                        paddingTop: '1rem',
+                        borderTop: '1px solid var(--border-subtle)',
+                        alignItems: 'center',
+                        justifyContent: 'space-between'
+                      }}
+                    >
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
+                        {project.tags.slice(0, 4).map((tag) => (
+                          <span
+                            key={tag}
+                            style={{
+                              fontSize: '0.75rem',
+                              fontWeight: 600,
+                              backgroundColor: 'var(--bg-primary)',
+                              color: 'var(--text-secondary)',
+                              padding: '0.2rem 0.55rem',
+                              borderRadius: '6px',
+                              border: '1px solid var(--border-subtle)'
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        {project.tags.length > 4 && (
+                          <span
+                            style={{
+                              fontSize: '0.75rem',
+                              fontWeight: 600,
+                              color: 'var(--primary)'
+                            }}
+                          >
+                            +{project.tags.length - 4} more
+                          </span>
+                        )}
+                      </div>
+
+                      <span
+                        style={{
+                          fontSize: '0.78rem',
+                          fontWeight: 700,
+                          color: 'var(--primary)'
+                        }}
+                      >
+                        View Details →
                       </span>
-                    ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -299,7 +308,7 @@ export const Projects: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Project Details Modal */}
+      {/* Project Details Popup Modal */}
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   );
