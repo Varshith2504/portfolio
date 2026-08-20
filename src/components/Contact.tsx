@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Mail,
   Phone,
-  Copy,
-  Check,
   Sparkles,
   ExternalLink,
   MapPin
@@ -13,21 +11,6 @@ import { personalInfo } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
 export const Contact: React.FC = () => {
-  const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText(personalInfo.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2500);
-  };
-
-  const copyPhone = () => {
-    navigator.clipboard.writeText(personalInfo.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2500);
-  };
-
   return (
     <section id="contact" className="section" style={{ backgroundColor: 'rgba(255, 255, 255, 0.4)' }}>
       <div className="container">
@@ -69,11 +52,11 @@ export const Contact: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6 }}
-          className="glass-card"
+          className="glass-card contact-card-box"
           style={{
-            maxWidth: '720px',
+            maxWidth: '680px',
             margin: '0 auto',
-            padding: '2.5rem',
+            padding: '2.5rem 1.75rem',
             backgroundColor: '#ffffff',
             borderRadius: '24px',
             boxShadow: 'var(--shadow-lg)'
@@ -123,91 +106,56 @@ export const Contact: React.FC = () => {
             Reach out through direct email, phone, or connect on LinkedIn and GitHub.
           </p>
 
-          {/* Contact Methods Stack Inside The Box */}
+          {/* Contact Details Stack */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.75rem' }}>
             {/* Email Row */}
             <div
               style={{
                 display: 'flex',
-                flexWrap: 'wrap',
                 alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: '0.75rem',
-                padding: '1rem 1.25rem',
+                gap: '1rem',
+                padding: '1.1rem 1.25rem',
                 backgroundColor: 'var(--bg-primary)',
                 border: '1px solid var(--border-subtle)',
-                borderRadius: '14px'
+                borderRadius: '14px',
+                width: '100%',
+                overflow: 'hidden'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '10px',
-                    backgroundColor: 'var(--primary-light)',
-                    color: 'var(--primary)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}
-                >
-                  <Mail size={19} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600 }}>Email</div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                    {personalInfo.email}
-                  </div>
-                </div>
+              <div
+                style={{
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '10px',
+                  backgroundColor: 'var(--primary-light)',
+                  color: 'var(--primary)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}
+              >
+                <Mail size={20} />
               </div>
-
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <motion.button
-                  onClick={copyEmail}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: '8px',
-                    fontSize: '0.82rem',
-                    fontWeight: 600,
-                    backgroundColor: copiedEmail ? '#eff6ff' : '#ffffff',
-                    color: 'var(--primary)',
-                    border: '1px solid rgba(37, 99, 235, 0.3)',
-                    cursor: 'pointer'
-                  }}
-                >
-                  {copiedEmail ? (
-                    <>
-                      <Check size={14} />
-                      <span>Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy size={14} />
-                      <span>Copy</span>
-                    </>
-                  )}
-                </motion.button>
-
-                <motion.a
+              <div style={{ minWidth: 0, flex: 1, overflow: 'hidden' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  Email Address
+                </div>
+                <a
                   href={`mailto:${personalInfo.email}`}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="btn btn-primary"
                   style={{
-                    padding: '0.45rem 0.85rem',
-                    fontSize: '0.82rem',
-                    borderRadius: '8px'
+                    fontSize: 'clamp(0.85rem, 3.8vw, 1.05rem)',
+                    fontWeight: 700,
+                    color: 'var(--text-primary)',
+                    marginTop: '2px',
+                    wordBreak: 'break-word',
+                    overflowWrap: 'anywhere',
+                    display: 'block',
+                    lineHeight: 1.3
                   }}
                 >
-                  <span>Send Mail</span>
-                </motion.a>
+                  {personalInfo.email}
+                </a>
               </div>
             </div>
 
@@ -215,85 +163,48 @@ export const Contact: React.FC = () => {
             <div
               style={{
                 display: 'flex',
-                flexWrap: 'wrap',
                 alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: '0.75rem',
-                padding: '1rem 1.25rem',
+                gap: '1rem',
+                padding: '1.1rem 1.25rem',
                 backgroundColor: 'var(--bg-primary)',
                 border: '1px solid var(--border-subtle)',
-                borderRadius: '14px'
+                borderRadius: '14px',
+                width: '100%',
+                overflow: 'hidden'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '10px',
-                    backgroundColor: 'var(--primary-light)',
-                    color: 'var(--primary)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}
-                >
-                  <Phone size={19} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600 }}>Phone</div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                    {personalInfo.phone}
-                  </div>
-                </div>
+              <div
+                style={{
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '10px',
+                  backgroundColor: 'var(--primary-light)',
+                  color: 'var(--primary)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}
+              >
+                <Phone size={20} />
               </div>
-
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <motion.button
-                  onClick={copyPhone}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: '8px',
-                    fontSize: '0.82rem',
-                    fontWeight: 600,
-                    backgroundColor: copiedPhone ? '#eff6ff' : '#ffffff',
-                    color: 'var(--primary)',
-                    border: '1px solid rgba(37, 99, 235, 0.3)',
-                    cursor: 'pointer'
-                  }}
-                >
-                  {copiedPhone ? (
-                    <>
-                      <Check size={14} />
-                      <span>Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy size={14} />
-                      <span>Copy</span>
-                    </>
-                  )}
-                </motion.button>
-
-                <motion.a
+              <div style={{ minWidth: 0, flex: 1, overflow: 'hidden' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  Phone Number
+                </div>
+                <a
                   href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="btn btn-secondary"
                   style={{
-                    padding: '0.45rem 0.85rem',
-                    fontSize: '0.82rem',
-                    borderRadius: '8px'
+                    fontSize: 'clamp(0.9rem, 3.8vw, 1.05rem)',
+                    fontWeight: 700,
+                    color: 'var(--text-primary)',
+                    marginTop: '2px',
+                    display: 'block',
+                    lineHeight: 1.3
                   }}
                 >
-                  <span>Call</span>
-                </motion.a>
+                  {personalInfo.phone}
+                </a>
               </div>
             </div>
           </div>
@@ -350,7 +261,7 @@ export const Contact: React.FC = () => {
             </motion.a>
           </div>
 
-          {/* Location Inside The Box */}
+          {/* Location Footnote */}
           <div
             style={{
               display: 'flex',
