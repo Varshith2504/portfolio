@@ -142,7 +142,7 @@ export const About: React.FC = () => {
               </div>
             </div>
 
-            {personalInfo.summary.map((paragraph, idx) => (
+            {personalInfo.summary.map((paragraph: string, idx: number) => (
               <p
                 key={idx}
                 style={{

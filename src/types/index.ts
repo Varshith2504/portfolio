@@ -1,3 +1,17 @@
+export interface PersonalInfo {
+  name: string;
+  title: string;
+  role: string;
+  status: string;
+  location: string;
+  email: string;
+  phone: string;
+  github: string;
+  linkedin: string;
+  tagline: string;
+  summary: string[];
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -48,7 +62,7 @@ export interface CertificationItem {
 export interface StatItem {
   label: string;
   value: string;
-  numericValue: number;
-  suffix: string;
+  numericValue?: number;
+  suffix?: string;
   description: string;
 }
