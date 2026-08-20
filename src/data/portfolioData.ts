@@ -110,8 +110,8 @@ export const projectsData: Project[] = [
       'Integrated dynamic map routes, hotel recommendations, and attraction highlights',
       'Designed a clean, responsive UI allowing travelers to customize and export trip plans seamlessly'
     ],
-    liveUrl: 'https://github.com/Varshith2504',
-    githubUrl: 'https://github.com/Varshith2504',
+    liveUrl: 'https://github.com/Varshith2504/ai-trip-planner',
+    githubUrl: 'https://github.com/Varshith2504/ai-trip-planner',
     featured: true
   },
   {
