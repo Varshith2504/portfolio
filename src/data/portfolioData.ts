@@ -125,7 +125,7 @@ export const educationData: EducationItem[] = [
     scoreLabel: 'CGPA',
     description: 'Pursuing Bachelor of Technology in Information Technology, focusing on software engineering principles, database systems, object-oriented programming, data structures, and web technologies.',
     highlights: [
-      'Core coursework: Data Structures & Algorithms, Database Management Systems (DBMS), Object-Oriented Programming (Java/C++), Operating Systems, Computer Networks.',
+      'Core coursework: Data Structures & Algorithms, Database Management Systems (DBMS), Object-Oriented Programming (Java/Python), Operating Systems, Computer Networks.',
       'Active developer building full-stack and AI-enabled projects such as Collab Hub and Expense Vision.'
     ]
   },

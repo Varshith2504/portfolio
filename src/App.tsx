@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -34,6 +35,9 @@ export const App: React.FC = () => {
 
   return (
     <div className="app-container">
+      {/* Desktop Only Interactive Custom Cursor */}
+      <CustomCursor />
+
       {/* Ambient Animated Gradient Background Mesh & Grid */}
       <div className="ambient-bg">
         <div className="blob blob-1" />
